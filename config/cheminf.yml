@@ -1,5 +1,7 @@
-idspace: CHEMINFO
+idspace: CHEMINF
+
 base_url: /obo/cheminf
+
 
 products:
 - cheminf.owl: https://raw.githubusercontent.com/egonw/semanticchemistry/master/ontology/cheminf.owl
