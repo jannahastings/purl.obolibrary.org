@@ -4,7 +4,7 @@
 # make a series of HTTP HEAD requests to a target server,
 # and report the results in a TSV file.
 #
-# NOTE: Currently only tests `example_terms` when `term_browser: ontobee`.
+# NOTE: Currently only tests `example_terms` when `term_browser:` is ontobee` or `ols`.
 
 import argparse
 import http.client
@@ -51,13 +51,14 @@ def main():
   except FileExistsError:
     pass
 
+  failed_idspaces = []
   failures = []
   for yaml_file in args.yaml_files:
     print("Checking {} ...".format(yaml_file.name))
     with open(os.path.normpath(args.output) + '/' +
               re.sub('\.yml$', '.tsv', os.path.basename(yaml_file.name)), 'w') as report_file:
       # Load YAML document and look for 'entries' list.
-      document = yaml.load(yaml_file)
+      document = yaml.load(yaml_file, Loader=yaml.SafeLoader)
 
       if 'idspace' not in document \
          or type(document['idspace']) is not str:
@@ -87,13 +88,16 @@ def main():
           tests += process_product(i, product)
 
       if 'term_browser' in document \
-         and document['term_browser'].strip().lower() == 'ontobee' \
          and 'example_terms' in document \
          and type(document['example_terms']) is list:
+        browser = document['term_browser'].strip().lower()
         i = 0
         for example_term in document['example_terms']:
           i += 1
-          tests += process_ontobee(idspace, i, example_term)
+          if browser == 'ontobee':
+            tests += process_ontobee(idspace, i, example_term)
+          elif browser == 'ols':
+            tests += process_ols(idspace, i, example_term)
 
       if 'tests' in document:
         i = 0
@@ -131,16 +135,32 @@ def main():
         if results[0] == 'FAIL':
           print("FAILURE when checking {}. See {} for details."
                 .format(yaml_file.name, report_file.name))
-          failures.append(idspace)
+          failed_idspaces.append(idspace)
+          failures.append(results)
         report_file.write('\t'.join(results) + '\n')
         report_file.flush()
         time.sleep(args.delay)
 
   if failures:
-    print("The following idspaces encountered failures: {}.\n"
-          "For more details, see their corresponding TSV files in '{}'.\n"
-          "To re-run tests for just those idspaces, use the script '{}'."
-          .format(', '.join(failures), args.output, __file__))
+    print()
+    print("The following idspaces encountered failures: {}."
+          .format(', '.join(failed_idspaces)))
+    message = None
+    if len(failures) == 1:
+      message = "1 failure"
+    elif len(failures) < 10:
+      message = "{} failures".format(len(failures))
+    else:
+      message = "First 10 failures of {}".format(len(failures))
+    print(message + " (path, expected, actual):")
+    for failure in failures[0:10]:
+      print("  " + failure[1])
+      print("    " +  " ".join(failure[2:4]))
+      print("    " +  " ".join(failure[4:6]))
+    print("For more details, see their corresponding TSV files in '{}'."
+          .format(args.output))
+    print("To re-run tests for just those idspaces, use the script '{}'."
+          .format(__file__))
     sys.exit(1)
 
 
@@ -156,15 +176,24 @@ def process_product(i, product):
 
 
 ontobee = 'http://www.ontobee.org/browser/rdf.php?o=%s&iri=http://purl.obolibrary.org/obo/'
+ols = 'https://www.ebi.ac.uk/ols/ontologies/%s/terms?iri=http%%3A%%2F%%2Fpurl.obolibrary.org%%2Fobo%%2F'
 
 
 def process_ontobee(idspace, i, example_term):
   """Given an ontology IDSPACE, an index, and an example term ID,
-  return a list with a test to run."""
+  return a list with a test to run against Ontobee."""
   return [{
     'source': '/obo/' + example_term,
     'replacement': (ontobee % idspace) + example_term,
-    # 'replacement': 'http://ontologies.berkeleybop.org/' + example_term,
+    'status': '303'
+  }]
+
+def process_ols(idspace, i, example_term):
+  """Given an ontology IDSPACE, an index, and an example term ID,
+  return a list with a test to run against OLS."""
+  return [{
+    'source': '/obo/' + example_term,
+    'replacement': (ols % idspace.lower()) + example_term,
     'status': '303'
   }]
 
