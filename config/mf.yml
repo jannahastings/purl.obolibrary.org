@@ -7,6 +7,7 @@ products:
 - mf.owl: https://raw.githubusercontent.com/jannahastings/mental-functioning-ontology/master/ontology/MF.owl
 
 term_browser: ontobee
+
 example_terms:
 - MF_0000000
 
