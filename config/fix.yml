@@ -8,5 +8,6 @@ products:
 - fix.owl: http://ontologies.berkeleybop.org/fix.owl
 
 term_browser: ontobee
+
 example_terms:
 - FIX_0000000
