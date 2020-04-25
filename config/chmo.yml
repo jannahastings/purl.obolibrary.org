@@ -8,5 +8,6 @@ products:
 - chmo.obo: https://raw.githubusercontent.com/rsc-ontologies/rsc-cmo/master/chmo.obo
 
 term_browser: ontobee
+
 example_terms:
 - CHMO_0002748
