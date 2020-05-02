@@ -7,3 +7,4 @@ products:
 - cheminf.obo: http://ontologies.berkeleybop.org/cheminf.obo
 
 term_browser: ontobee
+base_url: /obo/cheminf
