@@ -1,5 +1,5 @@
 # PURL configuration for http://purl.obolibrary.org/obo/aeo
-
+# Testing
 idspace: AEO
 base_url: /obo/aeo
 
