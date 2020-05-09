@@ -1,5 +1,5 @@
 # PURL configuration for http://purl.obolibrary.org/obo/xpo
-
+# Testing
 idspace: XPO
 base_url: /obo/xpo
 
