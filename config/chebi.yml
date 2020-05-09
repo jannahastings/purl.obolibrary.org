@@ -1,5 +1,5 @@
 # PURL configuration for http://purl.obolibrary.org/obo/chebi
-
+# Testing
 idspace: CHEBI
 base_url: /obo/chebi
 
