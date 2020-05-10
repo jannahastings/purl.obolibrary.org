@@ -1,5 +1,5 @@
 # PURL configuration for http://purl.obolibrary.org/obo/ato
-
+# Testing
 idspace: ATO
 base_url: /obo/ato
 
