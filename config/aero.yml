@@ -1,5 +1,5 @@
 # PURL configuration for http://purl.obolibrary.org/obo/aero
-
+# Testing
 idspace: AERO
 base_url: /obo/aero
 
