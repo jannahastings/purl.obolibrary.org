@@ -2,7 +2,7 @@
 
 idspace: AEO
 base_url: /obo/aeo
-
+ 
 products:
 - aeo.owl: http://ontologies.berkeleybop.org/aeo.owl
 - aeo.obo: http://ontologies.berkeleybop.org/aeo.obo
