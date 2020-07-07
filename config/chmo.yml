@@ -1,5 +1,5 @@
 # PURL configuration for http://purl.obolibrary.org/obo/chmo
-
+ 
 idspace: CHMO
 base_url: /obo/chmo
 
