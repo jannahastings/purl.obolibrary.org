@@ -1,0 +1,9 @@
+# PURL configuration for http://purl.obolibrary.org/obo/abcde
+
+idspace: ABCDE
+base_url: /obo/abcde
+
+products:
+- abcde.owl: https://raw.githubusercontent.com/jannahastings/emotion-ontology/master/abcde.owl
+
+term_browser: ontobee
