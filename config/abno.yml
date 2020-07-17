@@ -1,0 +1,9 @@
+# PURL configuration for http://purl.obolibrary.org/obo/abno
+
+idspace: ABNO
+base_url: /obo/abno
+
+products:
+- abno.owl: https://raw.githubusercontent.com/jannahastings/emotion-ontology/master/abno.owl
+
+term_browser: ontobee
