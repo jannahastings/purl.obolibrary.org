@@ -1,0 +1,9 @@
+# PURL configuration for http://purl.obolibrary.org/obo/sio
+
+idspace: SIO
+base_url: /obo/sio
+
+products:
+- sio.owl: https://raw.githubusercontent.com/jannahastings/emotion-ontology/master/sio.owl
+
+term_browser: ontobee
