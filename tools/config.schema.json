@@ -52,7 +52,11 @@
 		"term_browser": {
 			"description": "must be either 'ontobee' or 'custom'",
 			"type": "string",
-			"pattern": "^(ontobee|ols|custom)$"
+			"enum": [
+				"ontobee",
+				"ols",
+				"custom"
+			]
 		},
 		"example_terms": {
 			"type": "array",
@@ -89,7 +93,11 @@
 					"status": {
 						"description": "must be either 'permanent', 'temporary', or 'see other'",
 						"type": "string",
-						"pattern": "^(permanent|temporary|see other)$"
+						"enum": [
+							"permanent",
+							"temporary",
+							"see other"
+						]
 					},
 					"tests": {
 						"type": "array",
