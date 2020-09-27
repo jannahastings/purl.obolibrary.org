@@ -73,7 +73,7 @@
 			}
 		},
 		"entries": {
-			"description": "list the PURL mapping entries with origins and replacements",
+			"description": "list PURL mapping paths (exact, prefix or regex) and replacement URLs",
 			"type": "array",
 			"items": {
 				"type": "object",
@@ -110,7 +110,8 @@
 					}
 				},
 				"oneOf": [
-						{"required": ["exact"]},
+						{"description": "one of exact, prefix or regex is required",
+							"required": ["exact"]},
 						{"required": ["prefix"]},
 						{"required": ["regex"]}
 					],
