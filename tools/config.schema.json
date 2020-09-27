@@ -90,11 +90,6 @@
 						"_comment": "Note: JSON-Schema cannot ensure that `regex` mappings are unique",
 						"type": "string"
 					},
-					"oneOf": [
-						{"required": ["exact"]},
-						{"required": ["prefix"]},
-						{"required": ["regex"]}
-					],
 					"replacement": {
 						"$ref": "#/definitions/url"
 					},
@@ -114,6 +109,11 @@
 						}
 					}
 				},
+				"oneOf": [
+						{"required": ["exact"]},
+						{"required": ["prefix"]},
+						{"required": ["regex"]}
+					],
 				"required": ["replacement"]
 			}
 		}
