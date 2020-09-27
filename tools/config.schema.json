@@ -78,27 +78,23 @@
 			"items": {
 				"type": "object",
 				"properties": {
-					"oneOf": {
-						"exact": {
-							"exact": {
-								"_comment": "Note: JSON-Schema cannot ensure that `exact` mappings are unique",
-								"$ref": "#/definitions/path"
-							}, "required": ["exact"]
-
-						},
-						"prefix": {
-							"prefix": {
-								"_comment": "Note: JSON-Schema cannot ensure that `prefix` mappings are unique",
-								"$ref": "#/definitions/path"
-							}, "required": ["prefix"]
-						},
-						"regex": {
-							"regex": {
-								"_comment": "Note: JSON-Schema cannot ensure that `regex` mappings are unique",
-								"type": "string"
-							}, "required": ["regex"]
-						}
+					"exact": {
+						"_comment": "Note: JSON-Schema cannot ensure that `exact` mappings are unique",
+						"$ref": "#/definitions/path"
 					},
+					"prefix": {
+						"_comment": "Note: JSON-Schema cannot ensure that `prefix` mappings are unique",
+						"$ref": "#/definitions/path"
+					},
+					"regex": {
+						"_comment": "Note: JSON-Schema cannot ensure that `regex` mappings are unique",
+						"type": "string"
+					},
+					"oneOf": [
+						{"required": ["exact"]},
+						{"required": ["prefix"]},
+						{"required": ["regex"]}
+					],
 					"replacement": {
 						"$ref": "#/definitions/url"
 					},
