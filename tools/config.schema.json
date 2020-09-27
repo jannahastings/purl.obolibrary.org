@@ -34,7 +34,8 @@
 		"base_url": {
 			"description": "must begin with '/obo'",
 			"type": "string",
-			"pattern": "^\\/obo"
+			"pattern": "^\\/obo",
+			"suggestion": "/obo/"
 		},
 		"base_redirect": {
 			"type": "string"
@@ -50,7 +51,7 @@
 			}
 		},
 		"term_browser": {
-			"description": "must be either 'ontobee' or 'custom'",
+			"description": "must be one of 'ontobee', 'ols' or 'custom'",
 			"type": "string",
 			"enum": [
 				"ontobee",
@@ -59,6 +60,7 @@
 			]
 		},
 		"example_terms": {
+			"description": "include one or more examples IDs for exemplary ontology entries",
 			"type": "array",
 			"items": {
 				"type": "string"
@@ -71,27 +73,37 @@
 			}
 		},
 		"entries": {
+			"description": "list the PURL mapping entries with origins and replacements",
 			"type": "array",
 			"items": {
 				"type": "object",
 				"properties": {
-					"exact": {
-						"_comment": "Note: JSON-Schema cannot ensure that `exact` mappings are unique",
-						"$ref": "#/definitions/path"
-					},
-					"prefix": {
-						"_comment": "Note: JSON-Schema cannot ensure that `prefix` mappings are unique",
-						"$ref": "#/definitions/path"
-					},
-					"regex": {
-						"_comment": "Note: JSON-Schema cannot ensure that `regex` mappings are unique",
-						"type": "string"
+					"oneOf": {
+						"exact": {
+							"exact": {
+								"_comment": "Note: JSON-Schema cannot ensure that `exact` mappings are unique",
+								"$ref": "#/definitions/path"
+							}, "required": ["exact"]
+
+						},
+						"prefix": {
+							"prefix": {
+								"_comment": "Note: JSON-Schema cannot ensure that `prefix` mappings are unique",
+								"$ref": "#/definitions/path"
+							}, "required": ["prefix"]
+						},
+						"regex": {
+							"regex": {
+								"_comment": "Note: JSON-Schema cannot ensure that `regex` mappings are unique",
+								"type": "string"
+							}, "required": ["regex"]
+						}
 					},
 					"replacement": {
 						"$ref": "#/definitions/url"
 					},
 					"status": {
-						"description": "must be either 'permanent', 'temporary', or 'see other'",
+						"description": "must be one of 'permanent', 'temporary', or 'see other'",
 						"type": "string",
 						"enum": [
 							"permanent",
