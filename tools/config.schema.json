@@ -69,6 +69,7 @@
 		},
 		"tests": {
 			"type": "array",
+			"suggestion": "from: \\n  to: ",
 			"items" : {
 				"$ref": "#/definitions/test_item"
 			}
@@ -106,6 +107,7 @@
 					},
 					"tests": {
 						"type": "array",
+						"description": "Indicates a from: and to: mapping that should be successful",
 						"items" : {
 							"$ref": "#/definitions/test_item"
 						}
