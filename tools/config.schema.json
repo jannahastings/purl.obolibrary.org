@@ -35,7 +35,7 @@
 			"description": "must begin with '/obo'",
 			"type": "string",
 			"pattern": "^\\/obo",
-			"suggestion": "base_url: /obo/"
+			"suggestion": "/obo/"
 		},
 		"base_redirect": {
 			"type": "string"
@@ -74,7 +74,7 @@
 		},
 		"entries": {
 			"description": "list PURL mapping paths (exact, prefix or regex) and replacement URLs",
-			"suggestion": "entries: \\n- prefix: \\n  replacement: ",
+			"suggestion": "prefix: \\n  replacement: ",
 			"type": "array",
 			"items": {
 				"type": "object",
