@@ -53,6 +53,7 @@
 		"term_browser": {
 			"description": "must be one of 'ontobee', 'ols' or 'custom'",
 			"type": "string",
+			"suggestion": "ontobee",
 			"enum": [
 				"ontobee",
 				"ols",
