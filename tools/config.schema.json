@@ -38,10 +38,13 @@
 			"suggestion": "/obo/"
 		},
 		"base_redirect": {
-			"type": "string"
+			"description": "must be a valid URL",
+			"type": "string",
+			"format": "uri"
 		},
 		"products": {
 			"type": "array",
+			"description": "must specify the ontology files",
 			"items": {
 				"type": "object",
 				"patternProperties": {
