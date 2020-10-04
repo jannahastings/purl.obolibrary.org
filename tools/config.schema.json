@@ -56,7 +56,6 @@
 		"term_browser": {
 			"description": "must be one of 'ontobee', 'ols' or 'custom'",
 			"type": "string",
-			"suggestion": "ontobee",
 			"enum": [
 				"ontobee",
 				"ols",
@@ -79,7 +78,7 @@
 		},
 		"entries": {
 			"description": "list PURL mapping paths (exact, prefix or regex) and replacement URLs",
-			"suggestion": "prefix: \\n  replacement: ",
+			"suggestion": "exact: \\n  replacement: ",
 			"type": "array",
 			"items": {
 				"type": "object",
