@@ -71,14 +71,14 @@
 		},
 		"tests": {
 			"type": "array",
-			"suggestion": "from: \\n  to: ",
+			"suggestion": "from: \n  to: ",
 			"items" : {
 				"$ref": "#/definitions/test_item"
 			}
 		},
 		"entries": {
 			"description": "list PURL mapping paths (exact, prefix or regex) and replacement URLs",
-			"suggestion": "exact: \\n  replacement: ",
+			"suggestion": "exact: \n  replacement: ",
 			"type": "array",
 			"items": {
 				"type": "object",
