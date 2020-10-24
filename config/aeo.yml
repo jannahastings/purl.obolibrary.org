@@ -17,4 +17,4 @@ entries:
   tests:
   - from: /about/AEO_0000095
     to: http://www.ontobee.org/browser/rdf.php?o=AEO&iri=http://purl.obolibrary.org/obo/AEO_0000095
-
+  status: permanent
