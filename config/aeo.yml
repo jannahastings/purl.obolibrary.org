@@ -7,7 +7,7 @@ products:
 - aeo.owl: http://ontologies.berkeleybop.org/aeo.owl
 - aeo.obo: http://ontologies.berkeleybop.org/aeo.obo
 
-term_browser: ontobee
+term_browser: ols
 example_terms:
 - AEO_0000095
 
