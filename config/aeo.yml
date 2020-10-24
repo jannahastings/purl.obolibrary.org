@@ -7,7 +7,7 @@ products:
 - aeo.owl: http://ontologies.berkeleybop.org/aeo.owl
 - aeo.obo: http://ontologies.berkeleybop.org/aeo.obo
 
-term_browser: ontobee
+term_browser: ols
 example_terms:
 - AEO_0000095
 
@@ -17,4 +17,4 @@ entries:
   tests:
   - from: /about/AEO_0000095
     to: http://www.ontobee.org/browser/rdf.php?o=AEO&iri=http://purl.obolibrary.org/obo/AEO_0000095
-
+  status: permanent
