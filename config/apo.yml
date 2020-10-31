@@ -4,8 +4,7 @@ idspace: APO
 base_url: /obo/apo
 
 products:
-- apo.owl: http://ontologies.berkeleybop.org/apo.owl
-- apo.obo: http://ontologies.berkeleybop.org/apo.obo
+- apo.owl: http://ontologies.berkeleybop.org/apo.obo
 
 term_browser: ontobee
 example_terms:
@@ -14,3 +13,7 @@ example_terms:
 entries:
 - prefix: /
   replacement: https://github.com/cmungall/phenotype_ontologies/raw/master/apo/
+- exact: /boo
+  replacement: https://github.com/
+- regex: /dodod
+  replacement: https://github.com/
