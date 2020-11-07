@@ -1,0 +1,9 @@
+# PURL configuration for http://purl.obolibrary.org/obo/dkdkldkdkdk
+
+idspace: DKDKLDKDKDK
+base_url: /obo/dkdkldkdkdk
+
+products:
+- dkdkldkdkdk.owl: https://raw.githubusercontent.com/jannahastings/emotion-ontology/master/dkdkldkdkdk.owl
+
+term_browser: ontobee
